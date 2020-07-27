@@ -13,7 +13,8 @@ Mini Java Project for Redirecting and Storing Urls Shortcuts
 
 ## Dexcription
 This project is a small Rest Service using Java with Spark Framework and an H2 in-memory DB.
-It consist of 3 end points:
+All of the endpoints response is in a JSON format
+It consist of 3 endpoints:
 - GET /list
 - GET /<alias>
 - POST /newUrl
@@ -22,10 +23,12 @@ It consist of 3 end points:
   ### /list
   It returns all the urls stored with their respective alias stored.
   Note: Still has issues to display
+  This is a GET and it doesn´t require to send any parameter
 
   ### /:alias
   The site will redirect you to the url associated with that alias if any.
   Otherwise it will display a proper JSON output
+  This is a GET and the only parameter needed is the alias provided in the path
 
   ### /newUrl
   The site is expecting a JSON request with an "url" parameter. Other things will throw an error 500.
@@ -35,6 +38,13 @@ It consist of 3 end points:
   - any other url will contain only consonants, excluding the https or http
   
   Of course the same url will output the same alias
+  This is a POST and it require to send a JSON otherwise it will throw an error
+  An example of the request:
+  ```
+  {
+    "url":"the url"
+  }
+  ```
 
 ## Run Project
 To run the project be sure to build first:
